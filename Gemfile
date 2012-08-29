@@ -7,12 +7,39 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 
-gem 'foreman' # daemon management: Procfile
+# Storage
+gem 'paperclip' # manage model file attachments
+gem 'friendly_id' # prettier URLs with history
+gem 'stipulate' # enumerate string values on field
 
+# Interface
+gem 'simple_form' # clean HTML5 forms
+gem 'kaminari' # pagination
+gem 'bourbon' # CSS3 SASS import rules
+
+# Daemons
+gem 'foreman' # daemon management: Procfile
 gem 'resque' # job queuing and management
+
+# Renderers
+gem 'haml' # cleaner HTML alternative/renderer
+gem 'haml-rails', :group => :development
+gem 'rabl' # JSON, XML, etc. templating
+
+# ActiveRecord
+gem 'squeel' # WHERE queries without raw SQL fragments
 
 # These are strictly for ubuntu compatibility
 gem 'rb-readline'
+
+# Testing
+gem 'rspec-rails', :group => [:test, :development]
+group :test do
+	gem 'shoulda' # clean RSpec asserts
+	gem 'factory_girl_rails' # factory generation
+	gem 'capybara' # integration testing
+	# gem 'capybara-webkit' # webkit-based JavaScript testing
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
