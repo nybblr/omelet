@@ -9,8 +9,9 @@ gem 'sqlite3'
 
 gem 'foreman' # daemon management: Procfile
 
+gem 'resque' # job queuing and management
+
 # These are strictly for ubuntu compatibility
-# gem 'therubyracer'
 gem 'rb-readline'
 
 # Gems used only for assets and not required
