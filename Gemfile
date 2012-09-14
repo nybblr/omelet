@@ -13,18 +13,18 @@ gem 'friendly_id' # prettier URLs with history
 gem 'stipulate' # enumerate string values on field
 
 # Interface
-gem 'simple_form' # clean HTML5 forms
-gem 'kaminari' # pagination
-gem 'bourbon' # CSS3 SASS import rules
+# gem 'simple_form' # clean HTML5 forms
+# gem 'kaminari' # pagination
+# gem 'bourbon' # CSS3 SASS import rules
 
 # Daemons
 gem 'foreman' # daemon management: Procfile
 gem 'resque' # job queuing and management
 
 # Renderers
-gem 'haml' # cleaner HTML alternative/renderer
-gem 'haml-rails', :group => :development
-gem 'rabl' # JSON, XML, etc. templating
+# gem 'haml' # cleaner HTML alternative/renderer
+# gem 'haml-rails', :group => :development
+# gem 'rabl' # JSON, XML, etc. templating
 
 # ActiveRecord
 gem 'squeel' # WHERE queries without raw SQL fragments
