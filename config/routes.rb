@@ -3,6 +3,7 @@ require 'resque/server'
 Omelet::Application.routes.draw do
 	mount Resque::Server.new, :at => "/resque"
 
+	resources :reports, :only => [:index, :show, :create, :update, :destroy]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

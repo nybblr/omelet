@@ -24,7 +24,7 @@ gem 'resque' # job queuing and management
 # Renderers
 # gem 'haml' # cleaner HTML alternative/renderer
 # gem 'haml-rails', :group => :development
-# gem 'rabl' # JSON, XML, etc. templating
+gem 'rabl' # JSON, XML, etc. templating
 
 # ActiveRecord
 gem 'squeel' # WHERE queries without raw SQL fragments
