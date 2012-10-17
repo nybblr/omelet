@@ -14,4 +14,8 @@ class Report < ActiveRecord::Base
   scope :completed,  where(:status => :completed)
 
   stipulate :that => :status, :can_be => [:pending, :queued, :processing, :completed]
+
+  def async_create_report
+    Resque.enqueue(ReportJob, self.id)
+  end
 end
