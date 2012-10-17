@@ -4,4 +4,8 @@
 
 require File.expand_path('../config/application', __FILE__)
 
+require 'resque'
+require 'resque/tasks'
+
 Omelet::Application.load_tasks
+

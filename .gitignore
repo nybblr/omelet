@@ -14,6 +14,9 @@
 /log/*.log
 /tmp
 
+# Ignore resque session files
+/.vegas
+
 # Ignore vim session files
 Session.vim
 default.vim
