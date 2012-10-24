@@ -26,9 +26,16 @@ class ReportsController < ApplicationController
 
 	def create
 		@callback = params[:callback]
-		@query = params[:query]
-		@db = params[:db]
+		# @query = params[:query]
+		@db = params[:db_params]
+		@report = Report.new params[:report]
+		@report.status = :queued
+		@report.app_id = @app_id
+		@report.save
 
+		@report.async_create(@db, @callback)
+
+		render :nothing => true
 	end
 
 	def update
@@ -36,6 +43,10 @@ class ReportsController < ApplicationController
 	end
 
 	def destroy
+		@report = Report.for(@app_id, @user_id).find(params[:id])
+		@report.async_destroy
+		# @report.destroy
 
+		render :nothing => true
 	end
 end

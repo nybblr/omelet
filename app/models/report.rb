@@ -13,9 +13,17 @@ class Report < ActiveRecord::Base
   scope :processing, where(:status => :processing)
   scope :completed,  where(:status => :completed)
 
-  stipulate :that => :status, :can_be => [:pending, :queued, :processing, :completed]
+  stipulate :that => :status, :can_be => [:pending, :queued, :processing, :completed, :killed]
 
-  def async_create_report
-    Resque.enqueue(ReportJob, self.id)
+  def async_create(db_params, callback)
+    Resque.enqueue \
+			ReportJob, \
+			self.id, \
+			{ :db => db_params, :callback => callback }
   end
+
+	def async_destroy
+		self.status = :killed
+		self.save
+	end
 end
