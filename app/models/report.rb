@@ -13,7 +13,7 @@ class Report < ActiveRecord::Base
   scope :processing, where(:status => :processing)
   scope :completed,  where(:status => :completed)
 
-  stipulate :that => :status, :can_be => [:pending, :queued, :processing, :completed, :killed]
+  stipulate :that => :status, :can_be => [:pending, :queued, :processing, :completed, :failed, :killed]
 
   def async_create(db_params, callback)
     Resque.enqueue \
