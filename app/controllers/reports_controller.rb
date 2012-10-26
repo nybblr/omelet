@@ -39,7 +39,11 @@ class ReportsController < ApplicationController
 	end
 
 	def update
+		@report = Report.for(@app_id, @user_id).find(params[:id])
+		@report.attributes = params[:report]
+		@report.save
 
+		render :nothing => true
 	end
 
 	def destroy
