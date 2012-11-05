@@ -3,7 +3,7 @@ class Report < ActiveRecord::Base
 
   serialize :app_meta, Hash
   serialize :user_meta, Hash
-  serialize :query, Hash
+  # serialize :query, Hash
   serialize :db_params, Hash
 
   scope :for, lambda {|aid, uid| where(:app_id => aid, :user_id => uid) }

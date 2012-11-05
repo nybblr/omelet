@@ -7,5 +7,15 @@ class ReportJob
 
     report.status = :processing
     report.save
+
+		# Try to open database connection
+		db = ActiveRecord::Base.establish_connection hash[:db]
+
+		# Try to execute query!
+		results = db.connection.execute report.query
+
+		report.results = results
+		report.status = :finished
+		report.save
 	end
 end
