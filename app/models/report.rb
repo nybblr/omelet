@@ -5,6 +5,7 @@ class Report < ActiveRecord::Base
   serialize :user_meta, Hash
   # serialize :query, Hash
   serialize :db_params, Hash
+	serialize :results
 
   scope :for, lambda {|aid, uid| where(:app_id => aid, :user_id => uid) }
 

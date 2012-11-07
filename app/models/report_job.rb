@@ -8,11 +8,16 @@ class ReportJob
     report.status = :processing
     report.save
 
-		# Try to open database connection
-		db = ActiveRecord::Base.establish_connection hash[:db]
+		begin
+			# Try to open database connection
+			db = ActiveRecord::Base.establish_connection hash["db"]
 
-		# Try to execute query!
-		results = db.connection.execute report.query
+			# Try to execute query!
+			results = db.connection.execute report.query
+		end
+
+		# Reopen regular db
+		ActiveRecord::Base.establish_connection Rails.configuration.database_configuration[Rails.env]
 
 		report.results = results
 		report.status = :finished
