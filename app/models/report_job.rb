@@ -20,7 +20,7 @@ class ReportJob
 		ActiveRecord::Base.establish_connection Rails.configuration.database_configuration[Rails.env]
 
 		report.results = results
-		report.status = :finished
+		report.status = :completed
 		report.save
 	end
 end
