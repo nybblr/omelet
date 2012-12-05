@@ -9,6 +9,7 @@ Installation
 Assuming you have a functioning Ruby and Rails installation, you will also need a Redis server installed and configured.
 
 There are 3 components to Omelet:
+
 1. The queue server (this gem) --- this is run as a single daemon on the host server and responds to requests from any web app on the same server. Get redis and Resque running with `foreman start`, then run the rails app with `rails server`.
 2. The UI engine (omelet_ui). Bundle the repository in your host app and mount it (more below).
 3. Your host application. This is the app that will be providing data and hooks to report generation; mount omelet_ui (examples below), provide a configuration initializer, and build some report templates. For reference, checkout omelet_example for a fully functioning example host app.
