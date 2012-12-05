@@ -7,6 +7,8 @@ class Report < ActiveRecord::Base
   serialize :db_params, Hash
 	serialize :results
 
+	default_scope order("updated_at desc")
+
   scope :for, lambda {|aid, uid| where(:app_id => aid, :user_id => uid) }
 
   scope :pending,    where(:status => :pending)

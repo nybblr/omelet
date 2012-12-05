@@ -23,6 +23,12 @@ omelet_ui will need a database table for your templates, so install migrations w
 rake omelet_ui:install:migrations
 ```
 
+Mount the interface to a path of your choosing, such as:
+``` ruby
+### config/routes.rb
+mount Resque::Server.new, :at => "/resque"
+```
+
 Last, install an initializer to specify basic parameters:
 ``` ruby
 ### config/initializers/omelet_ui.rb
